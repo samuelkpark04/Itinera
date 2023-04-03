@@ -1,4 +1,6 @@
-﻿namespace Assist.Me_Demo;
+﻿using Assist.Me_Demo.Views;
+
+namespace Assist.Me_Demo;
 
 public partial class App : Application
 {
@@ -6,7 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new NavigationPage(new Views.StartPage());
+    }
 }
 
