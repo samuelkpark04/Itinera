@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assist.Me_Demo.Views.StartPage"
+             Title="StartPage">
+   <Grid
+        IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
+
+       <Grid.GestureRecognizers>
+
+           <SwipeGestureRecognizer Direction="Left" Swiped="OpenCalendar"/>
+
+       </Grid.GestureRecognizers>
+      
+       <VerticalStackLayout Spacing="16" TranslationY="200"
+                            x:Name="FullPage">
+        <Border
+            x:Name="frmIntro"
+            Opacity="1"
+            Padding="24,32"
+            BackgroundColor="{StaticResource FrameBackgroundColor}"
+            Stroke="{StaticResource FrameBackgroundColor}"
+            HorizontalOptions="Fill"
+            VerticalOptions="Start"
+            Margin="15">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="26"/>
+            </Border.StrokeShape>
+
+            <VerticalStackLayout
+                Spacing="16">
+
+                <Label
+                    x:Name="Intro"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource IntroPageHeaderStyle}"
+                    Text="Good Morning"/>
+
+
+                <Label
+                    x:Name="ChatBot"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="WordWrap"
+                    Style="{StaticResource IntroPageTextStyle}"
+                    Text="What can I help you with today?"/>
+
+         
+            </VerticalStackLayout>
+
+        </Border>
+
+        <Button
+                    x:Name="AssistButton"
+                    Style="{StaticResource ButtonStyle}"
+                    Text=""
+                    HorizontalOptions="Center"
+                    Margin="0,20,0,0"
+                    Clicked="AssistClicked" TranslationY="0"
+                    ZIndex="3"
+                    />
+
+       <Editor
+                    x:Name="user_in"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Start"
+                    Placeholder="Ask me something"
+                    TextColor="#6e6e6e"
+                    Opacity="1"
+                    Margin="30,300,30,30"
+                    PlaceholderColor="#6e6e6e"
+                    BackgroundColor="{StaticResource FrameBackgroundColor}"
+                    AutoSize="TextChanges" TranslationY="0"/>
+                <Button
+                    x:Name="SubmitButton"
+                    Style="{StaticResource ButtonStyle}"
+                    Text="Submit"
+                    HorizontalOptions="Center"
+                    Margin="50"
+                    Opacity="1"
+                    Clicked="SubmitClicked" TranslationY="0"
+                    ZIndex="0"
+                    />
+        </VerticalStackLayout>  
+    </Grid>
+</ContentPage>
