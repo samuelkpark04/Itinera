@@ -7,7 +7,7 @@
         <Color x:Key="PageBackgroundColor">#2b272e</Color>
         <Color x:Key="FrameBackgroundColor">#2b272e</Color>
         <Color x:Key="UserInputBackgroundColor">#69625e</Color>
-        <Color x:Key="ButtonBackgroundColor">#553e66</Color>
+        <Color x:Key="ButtonBackgroundColor">#a57cc2</Color>
         <Color x:Key="BorderColor">Transparent</Color>
         <Color x:Key="LightBorderColor">#d5d5d5</Color>
         <Color x:Key="LightTextColor">#d5d5d5</Color>

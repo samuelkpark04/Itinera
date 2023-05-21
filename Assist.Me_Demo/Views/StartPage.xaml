@@ -8,9 +8,11 @@
 
        <Grid.GestureRecognizers>
 
-           <SwipeGestureRecognizer Direction="Left" Swiped="OpenCalendar"/>
+            <SwipeGestureRecognizer Direction="Left" Swiped="leftSwipe"/>
+            <SwipeGestureRecognizer Direction="Right" Swiped="rightSwipe"/>
 
-       </Grid.GestureRecognizers>
+        </Grid.GestureRecognizers>
+
       
        <VerticalStackLayout Spacing="16" TranslationY="200"
                             x:Name="FullPage">
@@ -60,6 +62,8 @@
                     Clicked="AssistClicked" TranslationY="0"
                     ZIndex="3"
                     />
+           
+        
 
        <Editor
                     x:Name="user_in"
@@ -67,7 +71,7 @@
                     HorizontalTextAlignment="Start"
                     Placeholder="Ask me something"
                     TextColor="#6e6e6e"
-                    Opacity="1"
+                    Opacity="0"
                     Margin="30,300,30,30"
                     PlaceholderColor="#6e6e6e"
                     BackgroundColor="{StaticResource FrameBackgroundColor}"
@@ -77,9 +81,17 @@
                     Style="{StaticResource ButtonStyle}"
                     Text="Submit"
                     HorizontalOptions="Center"
-                    Margin="50"
-                    Opacity="1"
+                    Opacity="0"
                     Clicked="SubmitClicked" TranslationY="0"
+                    ZIndex="0"
+                    />
+            <Button
+                    x:Name="CancelButton"
+                    Style="{StaticResource ButtonStyle}"
+                    Text="Cancel"
+                    HorizontalOptions="Center"
+                    Opacity="0"
+                    Clicked="returnHome" TranslationY="50"
                     ZIndex="0"
                     />
         </VerticalStackLayout>  

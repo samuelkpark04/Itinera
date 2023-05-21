@@ -46,12 +46,16 @@ namespace Assist.Me_Demo
 				case 1:
 					output("Updating chat - 1");
                     Views.StartPage.updateChat("Of course!");
+					await Task.Delay(5000);
+					Views.StartPage.askAgain();
 					extractDate(user_in);
                     
                     break;
 				case 2:
                     output("Updating chat - 2");
                     Views.StartPage.updateChat("Noted!");
+                    await Task.Delay(5000);
+                    Views.StartPage.askAgain();
 					extractDate(user_in);
                   
                     break;
@@ -59,7 +63,7 @@ namespace Assist.Me_Demo
 					output("Updating chat - 3");
                     Views.StartPage.updateChat("Pulling up schedule...");
 					explain();
-					break;
+                    break;
 				case 4:
                     output("Updating chat - 4");
                     Views.StartPage.updateChat("Sorry this is beyond my pay grade...");

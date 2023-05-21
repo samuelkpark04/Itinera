@@ -35,6 +35,7 @@ namespace Assist.Me_Demo
 
 		public static string cleanGPTOutput(string output)
 		{
+			Console.WriteLine(output.IndexOf("output:") + 7);
 			return output.Substring(output.IndexOf("output:") + 7);
 		}
 	}

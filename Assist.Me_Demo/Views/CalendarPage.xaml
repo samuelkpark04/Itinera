@@ -3,36 +3,92 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assist.Me_Demo.Views.CalendarPage"
              Title="CalendarPage">
+
     <Grid
-        IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
+            IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
         <Grid.GestureRecognizers>
 
-           <SwipeGestureRecognizer Direction="Right" Swiped="CloseCalendar"/>
+            <SwipeGestureRecognizer Direction="Right" Swiped="rightSwipe"/>
 
-       </Grid.GestureRecognizers>
-
+        </Grid.GestureRecognizers>
+        <VerticalStackLayout Spacing="0"
+                             VerticalOptions="Center" TranslationY="0" TranslationX="177"
+                             x:Name="YearButtons">
+            <Border
+                            x:Name="PreviousYear"
+                            BackgroundColor="Transparent"
+                            Padding="15">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0"/>
+                </Border.StrokeShape>
+                <Button
+                                x:Name="PreviousYearContent"
+                                Text="2022"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Gray"
+                                CommandParameter="0"
+                                Clicked="DayClicked">
+                </Button>
+            </Border>
+            <Border
+                            x:Name="CurrentYear"
+                            BackgroundColor="Transparent"
+                            Padding="15">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0"/>
+                </Border.StrokeShape>
+                <Button
+                                x:Name="CurrentYearContent"
+                                Text="2023"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="MediumPurple"
+                                CommandParameter="0"
+                                Clicked="DayClicked">
+                </Button>
+            </Border>
+            <Border
+                            x:Name="NextYear"
+                            BackgroundColor="Transparent"
+                            Padding="15">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0"/>
+                </Border.StrokeShape>
+                <Button
+                                x:Name="NextYearContent"
+                                Text="2024"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Gray"
+                                CommandParameter="0"
+                                Clicked="DayClicked">
+                </Button>
+            </Border>
+        </VerticalStackLayout>
+        <ScrollView>
         <VerticalStackLayout Spacing="16"
                              VerticalOptions="Start" TranslationY="0"
                              x:Name="EntireCalendar">
 
-        <Label
-                    Padding="50,190,100,20"  
+                    <Label
+                    Padding="50,40,100,20"  
                     x:Name="MonthName"
                     HorizontalOptions="Start"
                     HorizontalTextAlignment="Start"
                     Style="{StaticResource IntroPageHeaderStyle}"
-                    Text="March" TranslationY="0"/>
-    
+                    Text="January" TranslationY="0"/>
 
-                <Grid RowDefinitions="*,*,*,*,*"
+
+                    <Grid RowDefinitions="*,*,*,*,*"
                       ColumnDefinitions="*,*,*,*,*,*,*"
                       HorizontalOptions="Fill"
                       VerticalOptions="Fill"
-                      HeightRequest="240"
-                      WidthRequest="330">
+                      HeightRequest="210"
+                      WidthRequest="300">
 
                         <Border
-                            x:Name="Day1"
+                            x:Name="JanDay1"
                             Grid.Row="0"
                             Grid.Column="0"
                             BackgroundColor="Transparent">
@@ -40,16 +96,17 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day1Content"
-                                Text="1"
+                                x:Name="JanDay1Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked">
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked">
                             </Button>
                         </Border>
                         <Border
-                            x:Name="Day2"
+                            x:Name="JanDay2"
                             Grid.Row="0"
                             Grid.Column="1"
                             BackgroundColor="Transparent">
@@ -57,15 +114,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day2Content"
-                                Text="2"
+                                x:Name="JanDay2Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day3"
+                            x:Name="JanDay3"
                             Grid.Row="0"
                             Grid.Column="2"
                             BackgroundColor="Transparent">
@@ -73,15 +131,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day3Content"
-                                Text="3"
+                                x:Name="JanDay3Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day4"
+                            x:Name="JanDay4"
                             Grid.Row="0"
                             Grid.Column="3"
                             BackgroundColor="Transparent">
@@ -89,15 +148,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day4Content"
-                                Text="4"
+                                x:Name="JanDay4Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day5"
+                            x:Name="JanDay5"
                             Grid.Row="0"
                             Grid.Column="4"
                             BackgroundColor="Transparent">
@@ -105,15 +165,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day5Content"
-                                Text="5"
+                                x:Name="JanDay5Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day6"
+                            x:Name="JanDay6"
                             Grid.Row="0"
                             Grid.Column="5"
                             BackgroundColor="Transparent">
@@ -121,15 +182,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day6Content"
-                                Text="6"
+                                x:Name="JanDay6Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day7"
+                            x:Name="JanDay7"
                             Grid.Row="0"
                             Grid.Column="6"
                             BackgroundColor="Transparent">
@@ -137,16 +199,17 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day7Content"
-                                Text="7"
+                                x:Name="JanDay7Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
 
                         <Border
-                            x:Name="Day8"
+                            x:Name="JanDay8"
                             Grid.Row="1"
                             Grid.Column="0"
                             BackgroundColor="Transparent">
@@ -154,15 +217,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day8Content"
-                                Text="8"
+                                x:Name="JanDay8Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day9"
+                            x:Name="JanDay9"
                             Grid.Row="1"
                             Grid.Column="1"
                             BackgroundColor="Transparent">
@@ -170,15 +234,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day9Content"
-                                Text="9"
+                                x:Name="JanDay9Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day10"
+                            x:Name="JanDay10"
                             Grid.Row="1"
                             Grid.Column="2"
                             BackgroundColor="Transparent">
@@ -186,15 +251,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day10Content"
-                                Text="10"
+                                x:Name="JanDay10Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day11"
+                            x:Name="JanDay11"
                             Grid.Row="1"
                             Grid.Column="3"
                             BackgroundColor="Transparent">
@@ -202,15 +268,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day11Content"
-                                Text="11"
+                                x:Name="JanDay11Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day12"
+                            x:Name="JanDay12"
                             Grid.Row="1"
                             Grid.Column="4"
                             BackgroundColor="Transparent">
@@ -218,15 +285,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day12Content"
-                                Text="12"
+                                x:Name="JanDay12Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day13"
+                            x:Name="JanDay13"
                             Grid.Row="1"
                             Grid.Column="5"
                             BackgroundColor="Transparent">
@@ -234,15 +302,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day13Content"
-                                Text="13"
+                                x:Name="JanDay13Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day14"
+                            x:Name="JanDay14"
                             Grid.Row="1"
                             Grid.Column="6"
                             BackgroundColor="Transparent">
@@ -250,16 +319,17 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day14Content"
-                                Text="14"
+                                x:Name="JanDay14Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
-    
+
                         <Border
-                            x:Name="Day15"
+                            x:Name="JanDay15"
                             Grid.Row="2"
                             Grid.Column="0"
                             BackgroundColor="Transparent">
@@ -267,15 +337,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day15Content"
-                                Text="15"
+                                x:Name="JanDay15Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day16"
+                            x:Name="JanDay16"
                             Grid.Row="2"
                             Grid.Column="1"
                             BackgroundColor="Transparent">
@@ -283,15 +354,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day16Content"
-                                Text="16"
+                                x:Name="JanDay16Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day17"
+                            x:Name="JanDay17"
                             Grid.Row="2"
                             Grid.Column="2"
                             BackgroundColor="Transparent">
@@ -299,15 +371,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day17Content"
-                                Text="17"
+                                x:Name="JanDay17Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day18"
+                            x:Name="JanDay18"
                             Grid.Row="2"
                             Grid.Column="3"
                             BackgroundColor="Transparent">
@@ -315,15 +388,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day18Content"
-                                Text="18"
+                                x:Name="JanDay18Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day19"
+                            x:Name="JanDay19"
                             Grid.Row="2"
                             Grid.Column="4"
                             BackgroundColor="Transparent">
@@ -331,15 +405,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day19Content"
-                                Text="19"
+                                x:Name="JanDay19Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day20"
+                            x:Name="JanDay20"
                             Grid.Row="2"
                             Grid.Column="5"
                             BackgroundColor="Transparent">
@@ -347,15 +422,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day20Content"
-                                Text="20"
+                                x:Name="JanDay20Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day21"
+                            x:Name="JanDay21"
                             Grid.Row="2"
                             Grid.Column="6"
                             BackgroundColor="Transparent">
@@ -363,16 +439,17 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day21Content"
-                                Text="21"
+                                x:Name="JanDay21Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
 
                         <Border
-                            x:Name="Day22"
+                            x:Name="JanDay22"
                             Grid.Row="3"
                             Grid.Column="0"
                             BackgroundColor="Transparent">
@@ -380,15 +457,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day22Content"
-                                Text="22"
+                                x:Name="JanDay22Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day23"
+                            x:Name="JanDay23"
                             Grid.Row="3"
                             Grid.Column="1"
                             BackgroundColor="Transparent">
@@ -396,15 +474,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day23Content"
-                                Text="23"
+                                x:Name="JanDay23Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day24"
+                            x:Name="JanDay24"
                             Grid.Row="3"
                             Grid.Column="2"
                             BackgroundColor="Transparent">
@@ -412,15 +491,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day24Content"
-                                Text="24"
+                                x:Name="JanDay24Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day25"
+                            x:Name="JanDay25"
                             Grid.Row="3"
                             Grid.Column="3"
                             BackgroundColor="Transparent">
@@ -428,15 +508,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day25Content"
-                                Text="25"
+                                x:Name="JanDay25Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day26"
+                            x:Name="JanDay26"
                             Grid.Row="3"
                             Grid.Column="4"
                             BackgroundColor="Transparent">
@@ -444,15 +525,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day26Content"
-                                Text="26"
+                                x:Name="JanDay26Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day27"
+                            x:Name="JanDay27"
                             Grid.Row="3"
                             Grid.Column="5"
                             BackgroundColor="Transparent">
@@ -460,15 +542,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day27Content"
-                                Text="27"
+                                x:Name="JanDay27Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day28"
+                            x:Name="JanDay28"
                             Grid.Row="3"
                             Grid.Column="6"
                             BackgroundColor="Transparent">
@@ -476,16 +559,17 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day28Content"
-                                Text="28"
+                                x:Name="JanDay28Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
 
                         <Border
-                            x:Name="Day29"
+                            x:Name="JanDay29"
                             Grid.Row="4"
                             Grid.Column="0"
                             BackgroundColor="Transparent">
@@ -493,15 +577,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day29Content"
-                                Text="29"
+                                x:Name="JanDay29Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day30"
+                            x:Name="JanDay30"
                             Grid.Row="4"
                             Grid.Column="1"
                             BackgroundColor="Transparent">
@@ -509,15 +594,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day30Content"
-                                Text="30"
+                                x:Name="JanDay30Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day31"
+                            x:Name="JanDay31"
                             Grid.Row="4"
                             Grid.Column="2"
                             BackgroundColor="Transparent">
@@ -525,15 +611,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day31Content"
-                                Text="31"
+                                x:Name="JanDay31Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day32"
+                            x:Name="JanDay32"
                             Grid.Row="4"
                             Grid.Column="3"
                             BackgroundColor="Transparent">
@@ -541,15 +628,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day32Content"
-                                Text="32"
+                                x:Name="JanDay32Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day33"
+                            x:Name="JanDay33"
                             Grid.Row="4"
                             Grid.Column="4"
                             BackgroundColor="Transparent">
@@ -557,15 +645,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day33Content"
-                                Text="33"
+                                x:Name="JanDay33Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day34"
+                            x:Name="JanDay34"
                             Grid.Row="4"
                             Grid.Column="5"
                             BackgroundColor="Transparent">
@@ -573,15 +662,16 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day34Content"
-                                Text="34"
+                                x:Name="JanDay34Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
                         <Border
-                            x:Name="Day35"
+                            x:Name="JanDay35"
                             Grid.Row="4"
                             Grid.Column="6"
                             BackgroundColor="Transparent">
@@ -589,17 +679,635 @@
                                 <RoundRectangle CornerRadius="13"/>
                             </Border.StrokeShape>
                             <Button
-                                x:Name="Day35Content"
-                                Text="35"
+                                x:Name="JanDay35Content"
+                                Text="0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                TextColor="White"
-                                Clicked="Day1Clicked"/>
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
                         </Border>
-                                       
-                </Grid>
 
-            <Border
+                    </Grid>
+                    <Label
+                    Padding="50,50,100,20"  
+                    x:Name="AMonthName"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource IntroPageHeaderStyle}"
+                    Text="February" TranslationY="0"/>
+
+                    <Grid RowDefinitions="*,*,*,*,*"
+                      ColumnDefinitions="*,*,*,*,*,*,*"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="Fill"
+                      HeightRequest="210"
+                      WidthRequest="300">
+
+                        <Border
+                            x:Name="FebDay1"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay1Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked">
+                            </Button>
+                        </Border>
+                        <Border
+                            x:Name="FebDay2"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay2Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay3"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay3Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay4"
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay4Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay5"
+                            Grid.Row="0"
+                            Grid.Column="4"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay5Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay6"
+                            Grid.Row="0"
+                            Grid.Column="5"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay6Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay7"
+                            Grid.Row="0"
+                            Grid.Column="6"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay7Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+
+                        <Border
+                            x:Name="FebDay8"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay8Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay9"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay9Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay10"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay10Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay11"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay11Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay12"
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay12Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay13"
+                            Grid.Row="1"
+                            Grid.Column="5"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay13Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay14"
+                            Grid.Row="1"
+                            Grid.Column="6"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay14Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+
+                        <Border
+                            x:Name="FebDay15"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay15Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay16"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay16Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay17"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay17Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay18"
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay18Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay19"
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay19Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay20"
+                            Grid.Row="2"
+                            Grid.Column="5"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay20Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay21"
+                            Grid.Row="2"
+                            Grid.Column="6"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay21Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+
+                        <Border
+                            x:Name="FebDay22"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay22Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay23"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay23Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay24"
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay24Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay25"
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay25Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay26"
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay26Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay27"
+                            Grid.Row="3"
+                            Grid.Column="5"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay27Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay28"
+                            Grid.Row="3"
+                            Grid.Column="6"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay28Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+
+                        <Border
+                            x:Name="FebDay29"
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay29Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay30"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay30Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay31"
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay31Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay32"
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay32Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay33"
+                            Grid.Row="4"
+                            Grid.Column="4"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay33Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay34"
+                            Grid.Row="4"
+                            Grid.Column="5"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay34Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                        <Border
+                            x:Name="FebDay35"
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Button
+                                x:Name="FebDay35Content"
+                                Text="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Transparent"
+                                CommandParameter="0"
+                                Clicked="DayClicked"/>
+                        </Border>
+                    </Grid>
+
+
+                    <Border
                 x:Name="DisplaySchedule"
                 Opacity="0"
                 Padding="10"
@@ -609,10 +1317,10 @@
                 VerticalOptions="Start"
                 Margin="30"
                 >
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="22"/>
-            </Border.StrokeShape>
-                <Label
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="22"/>
+                        </Border.StrokeShape>
+                        <Label
                     x:Name="ScheduleContent"
                     Text="Looks there is nothing scheduled today,"
                     Padding="30"
@@ -621,8 +1329,9 @@
                     VerticalOptions="Start"
                     Style="{StaticResource IntroPageTextStyle}"
                     TextColor="Black"/>
-                </Border>
-            </VerticalStackLayout>
+                    </Border>
 
+                </VerticalStackLayout>
+            </ScrollView>
     </Grid>
 </ContentPage>
